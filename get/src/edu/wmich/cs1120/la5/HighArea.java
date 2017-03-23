@@ -1,5 +1,16 @@
 package edu.wmich.cs1120.la5;
 
 public class HighArea extends Area {
+	
+	public HighArea(double energy, double elevation, double radiation){
+		setBasicEnergyCost(energy);
+		setElevation(elevation);
+		setRadiation(radiation);
+	}
+	
+	@Override
+	public double calcConsumedEnergy(){
+		return getBasicEnergyCost()*4;
+	}
 
 }
