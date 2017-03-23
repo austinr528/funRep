@@ -1,8 +1,8 @@
-package get;
+package edu.wmich.cs1120.la5;
 
 import java.util.ArrayList;
 
-public class ElevationAnalyzer implements IRover {
+public class EnergyAnalyzer implements IRover {
 
 	@Override
 	public ArrayList<IArea> getPath() {
