@@ -44,8 +44,8 @@ public class RadiationAnalyzer implements IRover {
 		this.analysis = analysis;
 
 	}
-	
-	public String toSrting(){
+	@Override
+	public String toString(){
 		String st = analysis;
 		return st;
 	}

@@ -40,7 +40,7 @@ public class EnergyAnalyzer implements IRover {
 		this.analysis = analysis;
 
 	}
-	
+	@Override
 	public String toString(){
 		return analysis;
 	}
