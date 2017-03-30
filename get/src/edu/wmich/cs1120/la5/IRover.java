@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface IRover {
 	/**
-	 * this method returns an arraylist<iArea> named path
+	 * this method returns an ArrayList<iArea> named path
 	 * @return an ArrayList<IArea> 
 	 */
 	ArrayList<IArea> getPath();
