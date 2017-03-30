@@ -7,6 +7,7 @@ import edu.wmich.cs1120.la5.TerrainScanner;
 public class MapCreatorFromDat implements IMapCreator {
 	private TerrainScanner scanner = new TerrainScanner();
 	private Area[][] terrain;
+	
 
 	@Override
 	public TerrainScanner getScanner() {
@@ -16,6 +17,7 @@ public class MapCreatorFromDat implements IMapCreator {
 
 	@Override
 	public void scanTerrain(String fileName, int threshold) throws IOException {
+		
 		
 		
 		
