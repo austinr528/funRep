@@ -51,10 +51,18 @@ public class MapCreatorFromTxt implements IMapCreator {
 
 	}
 
+	/**
+	 * gets the terrain
+	 * @return terrain a 2 d array of area objects
+	 */
 	public Area[][] getTerrain() {
 		return terrain;
 	}
 
+	/**
+	 * sets the terrain
+	 * @param terrain an 2d array of area objects
+	 */
 	public void setTerrain(Area[][] terrain) {
 		this.terrain = terrain;
 	}
