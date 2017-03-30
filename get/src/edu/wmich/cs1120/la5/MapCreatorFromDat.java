@@ -17,16 +17,19 @@ public class MapCreatorFromDat implements IMapCreator {
 
 	@Override
 	public void scanTerrain(String fileName, int threshold) throws IOException {
-		double energy;
+		double energy = 0;
 		double radiation;
 		double elevation;
+		terrain = new Area[10][10];
 		char operator;
 		int int1;
 		int int2;
 		int sum = 0;
 		RandomAccessFile randFile = new RandomAccessFile("terrain.dat", "r");
+		int i=0;
 	
 		while(sum != -1){
+			for(int j=0; j<10; j++){
 			energy = randFile.readDouble();
 			elevation = randFile.readDouble();
 			radiation = randFile.readDouble();
@@ -35,18 +38,22 @@ public class MapCreatorFromDat implements IMapCreator {
 			int2 = randFile.readInt();
 			
 			if(radiation>=.5){
-				terrain[int1][int2] = new HighArea(energy, elevation, radiation);
+				terrain[i][j] = new HighArea(energy, elevation, radiation);
 				
 			}
 			else if(elevation>threshold*.5){
-				terrain[int1][int2] = new HighArea(energy, elevation, radiation);
+				terrain[i][j] = new HighArea(energy, elevation, radiation);
 			}
 			else{
-				terrain[int1][int2] = new LowArea(energy, elevation, radiation);
+				terrain[i][j] = new LowArea(energy, elevation, radiation);
 			}
 			
 			IExpression l = ExpressionFactory.getExpression(operator, int1, int2);
 			sum = l.getValue();
+			randFile.seek(sum);
+			
+		}
+			i++;
 		}
 
 		
