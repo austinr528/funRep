@@ -45,8 +45,8 @@ public class MapCreatorFromDat implements IMapCreator {
 				terrain[int1][int2] = new LowArea(energy, elevation, radiation);
 			}
 			
-			ExpressionFactory.getExpression(operator, int1, int2);
-			
+			IExpression l = ExpressionFactory.getExpression(operator, int1, int2);
+			sum = l.getValue();
 		}
 
 		

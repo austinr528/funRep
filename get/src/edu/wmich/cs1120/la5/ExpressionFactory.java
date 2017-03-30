@@ -11,7 +11,9 @@ public class ExpressionFactory {
 		if(operator == '+');{
 			sum = add.perform(l1, l2);
 		}
-		return null;
+		l1.setValue(sum);
+		
+		return l1;
 	}
 
 }

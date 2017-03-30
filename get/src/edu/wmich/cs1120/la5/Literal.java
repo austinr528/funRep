@@ -11,5 +11,8 @@ public class Literal implements IExpression {
 		// TODO Auto-generated method stub
 		return num;
 	}
+	public void setValue(int num){
+		this.num = num;
+	}
 
 }
