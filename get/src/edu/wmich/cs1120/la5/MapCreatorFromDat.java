@@ -1,7 +1,7 @@
 package edu.wmich.cs1120.la5;
 
 import java.io.IOException;
-
+import java.io.RandomAccessFile;
 import edu.wmich.cs1120.la5.TerrainScanner;
 
 public class MapCreatorFromDat implements IMapCreator {
@@ -11,13 +11,44 @@ public class MapCreatorFromDat implements IMapCreator {
 
 	@Override
 	public TerrainScanner getScanner() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return scanner;
 	}
 
 	@Override
 	public void scanTerrain(String fileName, int threshold) throws IOException {
-		
+		double energy;
+		double radiation;
+		double elevation;
+		char operator;
+		int int1;
+		int int2;
+		int sum = 0;
+		RandomAccessFile randFile = new RandomAccessFile("terrain.dat", "r");
+	
+		while(sum != -1){
+			energy = randFile.readDouble();
+			elevation = randFile.readDouble();
+			radiation = randFile.readDouble();
+			operator = randFile.readChar();
+			int1 = randFile.readInt();
+			int2 = randFile.readInt();
+			
+			if(radiation>=.5){
+				terrain[int1][int2] = new HighArea(energy, elevation, radiation);
+				
+			}
+			else if(elevation>threshold*.5){
+				terrain[int1][int2] = new HighArea(energy, elevation, radiation);
+			}
+			else{
+				terrain[int1][int2] = new LowArea(energy, elevation, radiation);
+			}
+			
+			ExpressionFactory.getExpression(operator, int1, int2);
+			
+		}
+
 		
 		
 		
@@ -27,7 +58,7 @@ public class MapCreatorFromDat implements IMapCreator {
 
 	@Override
 	public void setScanner(TerrainScanner scanner) {
-		// TODO Auto-generated method stub
+		this.scanner = scanner;
 
 	}
 
