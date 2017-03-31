@@ -38,12 +38,7 @@ public class MapCreatorFromDat implements IMapCreator {
 			operator = randFile.readChar();
 			int1 = randFile.readInt();
 			int2 = randFile.readInt();
-			if(operator == '+'){
-				System.out.println(int1+int2);
-			}
-			else{
-				System.out.println(int1-int2);
-			}
+			
 			if(radiation>=.5){
 				terrain[i][j] = new HighArea(energy, elevation, radiation);
 				
